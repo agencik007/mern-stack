@@ -1,7 +1,6 @@
 {
   "name": "mern-stack",
   "version": "1.0.0",
-  "description": "",
   "main": "server.js",
   "scripts": {
     "start": "node backend/server.js",
@@ -18,5 +17,14 @@
   },
   "devDependencies": {
     "nodemon": "^2.0.15"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/agencik007/mern-stack.git"
+  },
+  "bugs": {
+    "url": "https://github.com/agencik007/mern-stack/issues"
+  },
+  "homepage": "https://github.com/agencik007/mern-stack#readme",
+  "description": ""
 }
