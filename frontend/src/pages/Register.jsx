@@ -1,12 +1,12 @@
-import { useState, useEffect } from 'react'
-import { useSelector, useDispatch } from 'react-redux'
-import { useNavigate } from 'react-router-dom'
-import { toast } from 'react-toastify'
-import { FaUser } from 'react-icons/fa'
-import { register, reset } from '../features/auth/authSlice'
-import {Spinner} from '../components/Spinner'
+import { useState, useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
+import { FaUser } from 'react-icons/fa';
+import { register, reset } from '../features/auth/authSlice';
+import Spinner from '../components/Spinner';
 
-export function Register() {
+function Register() {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -14,26 +14,25 @@ export function Register() {
     password2: '',
   })
 
-  const { name, email, password, password2 } = formData
+  const { name, email, password, password2 } = formData;
 
-  const navigate = useNavigate()
-  const dispatch = useDispatch()
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
 
-  const { user, isLoading, isError, isSuccess, message } = useSelector(
-    (state) => state.auth
-  )
+  const { user, isLoading, isError, isSuccess, message } = useSelector((state) => state.auth);
 
   useEffect(() => {
     if (isError) {
-      toast.error(message)
+      toast.error(message);
     }
 
     if (isSuccess || user) {
-      navigate('/')
+      navigate('/');
     }
 
-    dispatch(reset())
-  }, [user, isError, isSuccess, message, navigate, dispatch])
+    dispatch(reset());
+
+  }, [user, isError, isSuccess, message, navigate, dispatch]);
 
   const onChange = (e) => {
     setFormData((prevState) => ({
@@ -127,3 +126,5 @@ export function Register() {
     </>
   )
 }
+
+export default Register;
